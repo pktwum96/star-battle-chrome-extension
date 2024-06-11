@@ -1,0 +1,9 @@
+.double-star {
+    background: repeating-linear-gradient(
+  45deg,
+  #bc6060,
+  #bc6060 10px,
+  #984646 10px,
+  #984646 20px
+);
+}
