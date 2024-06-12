@@ -1,7 +1,7 @@
 {
   "name": "Star Blocker - Puzzle Baron",
   "description": "Automatically marks non-star cells in rows, columns, and diagonals around stars in Star Battle puzzles, ensuring no adjacent stars.",
-  "version": "0.0.0.1",
+  "version": "0.0.0.2",
   "manifest_version": 3,
   "icons": {
     "16": "icon.png",

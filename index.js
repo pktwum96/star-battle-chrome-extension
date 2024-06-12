@@ -99,6 +99,8 @@ function circleOutAdjacentDiagonals(box) {
   const highestPossibleBox = GAME_BASE * GAME_BASE - 1;
 
   const idNumber = Number(box.id.replace(BOX_ID_SELECTOR, ""));
+  const row = Math.floor(idNumber / GAME_BASE);
+  const col = idNumber % GAME_BASE;
 
   const diagonals = [
     { offset: -GAME_BASE - 1 }, // Left Top Diagonal
@@ -110,7 +112,19 @@ function circleOutAdjacentDiagonals(box) {
   diagonals.forEach((diagonal) => {
     const newId = idNumber + diagonal.offset;
 
-    if (newId >= lowestPossibleBox && newId <= highestPossibleBox) {
+    const diagonalRow = Math.floor(newId / GAME_BASE);
+    const diagonalCol = newId % GAME_BASE;
+
+    // Check if the diagonal is exactly one row and one column away
+    const isValidRow = Math.abs(row - diagonalRow) === 1;
+    const isValidColumn = Math.abs(col - diagonalCol) === 1;
+
+    if (
+      newId >= lowestPossibleBox &&
+      newId <= highestPossibleBox &&
+      isValidRow &&
+      isValidColumn
+    ) {
       const diagonalBox = document.getElementById(BOX_ID_SELECTOR + newId);
       if (diagonalBox) {
         implementEncircling(diagonalBox, box);
